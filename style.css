@@ -68,6 +68,17 @@ body {
     background-color: #252d37; /* Dark Blue */
 }
 
+.rating:hover > div:hover p:hover {
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.rating:hover > div:hover {
+    background-color: #7c8798; /* Medium Grey */
+    transition: 0.5s ease;
+}
+
 .button {
     display: flex;
     width: 100%;
@@ -75,10 +86,22 @@ body {
     background-color: #fb7413;
     justify-content: center;
     border-radius: 50vh;
+    cursor: pointer;
 }
 
 .button p {
+    font-weight: 700;
+    letter-spacing: 2px;
     color: white;
+}
+
+.button:hover {
+    background-color: white;
+    transition: 0.5s ease;
+}
+
+.button:hover p {
+    color: #fb7413;
 }
 
 .attribution {
