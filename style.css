@@ -1,0 +1,27 @@
+.attribution {
+    font-size: 11px;
+}
+
+.attribution a {
+    color: #3e52a3;
+}
+
+body {
+    background-color: hsl(216, 12%, 8%); /* Very Dark Blue */
+}
+
+.flex-container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-card {
+    display: flex;
+    height: 55vh;
+    width: 50vh;
+    background-color: #252d37; /* Dark Blue */
+    background-image: linear-gradient(180deg, #252d37, #121417);
+    border-radius: 5%;
+}
