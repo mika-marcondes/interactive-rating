@@ -32,11 +32,11 @@
             offering!</p>
 
         <div class="rating">
-            <button onclick="onButtonClick(0)">1</button>
-            <button onclick="onButtonClick(1)">2</button>
-            <button onclick="onButtonClick(2)">3</button>
-            <button onclick="onButtonClick(3)">4</button>
-            <button onclick="onButtonClick(4)">5</button>
+            <button onclick="onButtonClick(0)" class="rateDefault">1</button>
+            <button onclick="onButtonClick(1)" class="rateDefault">2</button>
+            <button onclick="onButtonClick(2)" class="rateDefault">3</button>
+            <button onclick="onButtonClick(3)" class="rateDefault">4</button>
+            <button onclick="onButtonClick(4)" class="rateDefault">5</button>
         </div>
 
         <button class="button">SUBMIT</button>
@@ -52,26 +52,22 @@
 
 <script>
 
-
     function onButtonClick(selection) {
 
         let ratingButtons = document.getElementsByClassName("rating")[0].children // collection of kids
 
         for (let i = 0; i < ratingButtons.length; i++) {
-            if (selection === i)
-                changeColor(ratingButtons[i], true, `#fb7413`, `#ffffff`)
-            else
-                changeColor(ratingButtons[i], false, `#252d37`, `#7c8798`)
+            selection === i ? changeClass(ratingButtons[i]) : defaultClass(ratingButtons[i])
         }
-
-        // console.log(ratingButtons)
     }
 
-    function changeColor(element, selected, bgColor, fgColor) {
-        element.style.backgroundColor = bgColor
-        element.style.color = fgColor
+    function changeClass(element) {
+        element.classList.toggle('rateSelected')
     }
 
+    function defaultClass(element) {
+        element.classList.remove('rateSelected')
+    }
 
 </script>
 

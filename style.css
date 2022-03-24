@@ -61,14 +61,20 @@ body {
     margin: 4vh 0;
 }
 
-.rating button {
-    border: 0;
+.rateDefault {
     background-color: #252d37;
     color: #7c8798;
-    border-radius: 50%;
-    font-weight: 700;
     width: 6.4vh;
     height: 6.4vh;
+    border: 0;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 2vh;
+}
+
+.rateSelected {
+    background-color: #fb7413;
+    color: #ffffff;
 }
 
 .rating button:hover {
@@ -78,13 +84,13 @@ body {
     cursor: pointer;
 }
 
-
 .button {
     border: 0;
     width: 100%;
     height: 6vh;
     background-color: #fb7413;
     color: white;
+    font-size: 2vh;
     font-weight: 700;
     letter-spacing: 2px;
     border-radius: 50vh;
