@@ -39,7 +39,7 @@
             <button onclick="onButtonClick(4)" class="rateDefault">5</button>
         </div>
 
-        <button class="button">SUBMIT</button>
+        <button class="submitButton">SUBMIT</button>
 
     </div>
 
@@ -57,7 +57,7 @@
         let ratingButtons = document.getElementsByClassName("rating")[0].children // collection of kids
 
         for (let i = 0; i < ratingButtons.length; i++) {
-            selection === i ? changeClass(ratingButtons[i]) : defaultClass(ratingButtons[i])
+            selection === i ? changeClass(ratingButtons[i]) : resetClass(ratingButtons[i])
         }
     }
 
@@ -65,7 +65,7 @@
         element.classList.toggle('rateSelected')
     }
 
-    function defaultClass(element) {
+    function resetClass(element) {
         element.classList.remove('rateSelected')
     }
 
