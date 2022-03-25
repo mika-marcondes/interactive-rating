@@ -12,7 +12,8 @@
     <title>Frontend Mentor | Interactive rating component</title>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+        .userSelected {
+        }
     </style>
 
 </head>
@@ -21,7 +22,9 @@
 
 <div class="container">
 
-    <div class="card">
+
+    <!-- Main screen -->
+    <div class="mainCard">
 
         <div class="header-star">
             <img src="images/icon-star.svg">
@@ -39,7 +42,22 @@
             <button onclick="onButtonClick(4)" class="rateDefault">5</button>
         </div>
 
-        <button class="submitButton">SUBMIT</button>
+        <button class="submitButton" onclick="onSubmitButton()">SUBMIT</button>
+
+    </div>
+
+    <!-- Thank You screen -->
+    <div class="tyCard">
+
+        <div>
+            <img src="images/illustration-thank-you.svg" id="imgScale">
+        </div>
+
+        <div class="userSelected"><p>You selected&nbsp;</p> <p id="finalRating">&nbsp;</p> <p>&nbsp;out of 5</p></div>
+
+        <h1 id="txtH1">Thank you!</h1>
+        <p id="txtP">We appreciate you taking the time to give a rating. If you ever need more support,
+        don't hesitate to get in touch!</p>
 
     </div>
 
@@ -52,21 +70,46 @@
 
 <script>
 
+    let ratingButtons = document.getElementsByClassName("rating")[0].children // collection of kids
+    let mainScreen = document.getElementsByClassName('mainCard')[0]
+    let thankScreen = document.getElementsByClassName('tyCard')[0]
+    let userSelection
+    let isSelected = false
+
     function onButtonClick(selection) {
 
-        let ratingButtons = document.getElementsByClassName("rating")[0].children // collection of kids
+        userSelection = selection
 
         for (let i = 0; i < ratingButtons.length; i++) {
-            selection === i ? changeClass(ratingButtons[i]) : resetClass(ratingButtons[i])
+            // selection === i ? changeClass(ratingButtons[i]) : resetClass(ratingButtons[i])
+            if (selection === i){
+                changeClass(ratingButtons[i])
+                isSelected = true
+            } else {
+                resetClass(ratingButtons[i])
+            }
         }
+
     }
 
     function changeClass(element) {
-        element.classList.toggle('rateSelected')
+        element.classList.add('rateSelected')
     }
 
     function resetClass(element) {
         element.classList.remove('rateSelected')
+    }
+
+    function onSubmitButton() {
+
+        if (isSelected) {
+            mainScreen.style.display = 'none'
+            thankScreen.style.display = 'flex'
+            document.getElementById('finalRating').innerHTML = userSelection + 1
+        } else {
+            window.alert('Please select a rating!')
+        }
+
     }
 
 </script>
